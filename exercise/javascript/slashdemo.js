@@ -10,6 +10,13 @@ function getRandomInt(min, max) {
 }
 
 //explain
+/**
+ * Calculates the area of a circle given its radius.
+ *
+ * @param {number} radius - The radius of the circle. Must be a non-negative number.
+ * @returns {number} The area of the circle.
+ * @throws {TypeError} If the radius is not a non-negative number.
+ */
 function calculateCircleArea(radius) {
   if (typeof radius !== "number" || radius < 0) {
     throw new TypeError("The radius must be a non-negative number.");
@@ -17,6 +24,14 @@ function calculateCircleArea(radius) {
   return Math.PI * radius * radius;
 }
 
+/**
+ * Constructs a full name by combining the first name and last name.
+ *
+ * @param {string} firstName - The first name.
+ * @param {string} lastName - The last name.
+ * @returns {string} The full name.
+ * @throws {TypeError} If either firstName or lastName is not a string.
+ */
 function constructFullName(firstName, lastName) {
   if (typeof firstName !== "string" || typeof lastName !== "string") {
     throw new TypeError("The names must be strings.");
@@ -37,29 +52,35 @@ function validateCreditCard2(cardNumber) {
       return "VISA";
     } else if (cardNumber.startsWith("5")) {
       return "MasterCard";
-  } else if (cardNumber.length === 15) {
-    if (cardNumber.startsWith("3")) {
-      return "American Express";
-    }
-  } else if (cardNumber.length === 16) {
-    if (cardNumber.startsWith("6")) {
+    } else if (cardNumber.startsWith("6")) {
       return "Discover";
+    } else {
+      return "Invalid Card Number";
     }
+  } else if (cardNumber.length === 15 && cardNumber.startsWith("3")) {
+    return "American Express";
   } else {
     return "Invalid Card Number";
   }
 }
 
 //fix right-click
+/**
+ * Finds the largest number in an array of numbers.
+ *
+ * @param {number[]} arrayOfNumbers - The array of numbers to search through.
+ * @returns {number|null} The largest number in the array, or null if the array is empty.
+ * @throws {TypeError} If the array contains non-number elements.
+ */
 function findLargestNumber(arrayOfNumbers) {
-  let largest == null; // Syntax error: Should use '=' instead of '=='
+  let largest = null; // Corrected assignment operator
   for (let i = 0; i < arrayOfNumbers.length; i++) {
-    if (typeOf arrayOfNumbers[i] !== "number") { // Syntax error: `typeof` is used incorrectly, and should be `typeof(arrayOfNumbers[i])`
+    if (typeof arrayOfNumbers[i] !== "number") { // Corrected `typeof` usage
       throw new TypeError("Array must contain only numbers.");
     }
     
-    if (arrayOfNumbers.[i] > largest) { // Syntax error: There's an extraneous '.' after `arrayOfNumbers`
-      largest = arrayOfNumber[i]; // Syntax error: The variable name is misspelled. It should be `arrayOfNumbers`
+    if (arrayOfNumbers[i] > largest) { // Removed extraneous '.'
+      largest = arrayOfNumbers[i]; // Corrected variable name
     }
   }
   
